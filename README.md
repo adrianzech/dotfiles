@@ -14,7 +14,7 @@
 Run this:
 
 ```sh
-git clone https://github.com/adrianzech/dotfiles-i3wm.git ~/.dotfiles
+git clone https://github.com/adrianzech/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && ./install
 ```
 
