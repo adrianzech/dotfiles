@@ -1,0 +1,16 @@
+#!/bin/bash
+FOREGROUND=$(xrdb -query | grep 'color15:'| awk 'NR==1{print $NF}')
+ROFI_OPTIONS=(-theme $HOME/.config/rofi/theme -m -1 -fullscreen 0 -theme-str "*{accent: $FOREGROUND;}")
+
+another=$(echo "Neustarten
+Herunterfahren" | awk '{print $(NF-1)}' | rofi "${ROFI_OPTIONS[@]}" -dmenu -i -p "System: ")
+
+if [ "$another" == "Neustarten" ] ; then
+	[ $(echo -e "Ja\nNein" | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Bist du dir sicher?") == Ja ] && reboot
+	
+elif [ "$another" == "Herunterfahren" ] ; then
+	[ $(echo -e "Ja\nNein" | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Bist du dir sicher?") == Ja ] && poweroff
+
+else
+    echo $another
+fi

@@ -1,0 +1,111 @@
+[colors]
+transparent = #00000000
+background  = ${xrdb:background:#FFFFFF}
+foreground  = ${xrdb:foreground:#FFFFFF}
+accent      = ${xrdb:accent:#FFFFFF}
+alert       = ${xrdb:color1:#FFFFFF}
+
+[bar/master]
+monitor = ${env:MONITOR}
+width = 100%
+height = 32
+background = ${colors.transparent}
+foreground = ${colors.foreground}
+font-0 = "Roboto:pixelsize=12:antialias=true;1"
+font-1 = "FontAwesome:pixelsize=12:antialias=true;1"
+locale = de_AT.UTF-8
+
+[bar/top]
+inherit = bar/master
+modules-left = bspwm spacer spotify-previous spotify-playpause spotify-next spotify
+modules-right = date time
+
+border-top-size = 10
+border-left-size = 15
+border-right-size = 15
+
+[module/spacer]
+type = custom/text
+content = -----
+content-background = ${colors.transparent}
+content-foreground = ${colors.transparent}
+
+[module/bspwm]
+type = internal/bspwm
+enable-click = true
+enable-scroll = false
+pin-workspaces = true
+
+format-background = ${colors.background}
+
+label-focused = 
+label-focused-background = ${colors.accent}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 4
+
+label-occupied = 
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = 4
+
+label-empty = 
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 4
+
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 4
+
+[module/time]
+type = internal/date
+interval = 40
+label = %time%
+time = %H:%M
+format-padding = 5
+format-background = ${colors.accent}
+format-foreground = ${colors.foreground}
+
+[module/date]
+type = internal/date
+interval = 1200
+label = %date%
+date = %A, %d %B
+format-padding = 5
+format-background = ${colors.background}
+
+[module/spotify]
+type = custom/script
+interval = 2
+exec-if = pgrep -x spotify
+exec = ~/.config/polybar/scripts/spotify
+format-padding = 5
+format-background = ${colors.background}
+
+[module/spotify-playpause]
+type = custom/script
+interval = 0
+exec-if = pgrep -x spotify
+exec = ~/.config/polybar/scripts/spotify-playpause
+click-left = playerctl play-pause
+format-padding = 3
+format-background = ${colors.accent}
+format-foreground = ${colors.foreground}
+
+[module/spotify-previous]
+type = custom/script
+exec-if = pgrep -x spotify
+exec = echo ""
+click-left = playerctl previous
+format-padding = 3
+format-background = ${colors.accent}
+format-foreground = ${colors.foreground}
+
+[module/spotify-next]
+type = custom/script
+exec-if = pgrep -x spotify
+exec = echo ""
+click-left = playerctl next
+format-padding = 3
+format-background = ${colors.accent}
+format-foreground = ${colors.foreground}

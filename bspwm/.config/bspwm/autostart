@@ -1,0 +1,8 @@
+#! /bin/sh
+
+sxhkd &
+compton -cC &
+xrdb $HOME/.Xresources &
+$HOME/.config/polybar/launch &
+hsetroot -solid "#0f0f0f" &
+xsetroot -cursor_name left_ptr &

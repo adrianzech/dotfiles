@@ -1,0 +1,11 @@
+#!/bin/bash
+
+stow bspwm
+stow polybar
+stow ranger
+stow rofi
+stow sxhkd
+stow themes
+stow vim
+stow xresources
+stow zsh
