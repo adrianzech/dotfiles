@@ -1,6 +1,7 @@
 # dotfiles
 
 ![Screenshot](https://raw.githubusercontent.com/adrianzech/dotfiles/master/screenshots/main.png)
+![Screenshot](https://raw.githubusercontent.com/adrianzech/dotfiles/master/screenshots/rofi.png)
 
 - **Window Manager**: bspwm
 - **Bar**: polybar
