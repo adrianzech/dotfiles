@@ -1,6 +1,7 @@
 # dotfiles
 
 ![Screenshot](https://raw.githubusercontent.com/adrianzech/dotfiles/master/screenshots/main.png)
+![Screenshot](https://raw.githubusercontent.com/adrianzech/dotfiles/master/screenshots/rofi.png)
 
 - **Window Manager**: bspwm
 - **Bar**: polybar
@@ -14,7 +15,7 @@
 Run this:
 
 ```sh
-git clone https://github.com/adrianzech/dotfiles-i3wm.git ~/.dotfiles
+git clone https://github.com/adrianzech/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && ./install
 ```
 
