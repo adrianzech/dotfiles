@@ -1,6 +1,7 @@
 #! /bin/sh
 
 sxhkd &
+numlockx &
 compton -cC &
 xrdb $HOME/.Xresources &
 $HOME/.config/polybar/launch &
